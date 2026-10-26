@@ -1,5 +1,7 @@
-<!-- lang: es-CO -->
 # Práctica 4.4: diseñar y aplicar una arquitectura de stores para una aplicación compleja
+
+<!-- lang: es-CO -->
+<!-- {% raw %} -->
 
 | Campo | Valor |
 |---|---|
@@ -88,7 +90,7 @@ En esta guía, `@/` es el atajo a `src/`: `@/stores/auth.js` es `src/stores/auth
 | Proyectos | `stores/projects.js` | `byId`, `allIds`, `status` | |
 | Tareas | `stores/tasks.js` | `byId`, `allIds` | |
 
-<details>
+<details markdown="1">
 <summary>Compara con la respuesta</summary>
 
 Se guardan `user`, `theme` y `filter`: los eligió la persona. No se guardan `token` (una credencial; en producción va en una cookie HttpOnly), `toast`, `pending` y `errors` (describen un momento) ni proyectos y tareas (los trae la API). Las dependencias van en una sola dirección: `projects` y `tasks` usan `apiStatus`, y `apiStatus` y `tasks` usan `ui`. `ui` no usa ninguna.
@@ -627,7 +629,7 @@ Responde `'{"user":{"name":"Ana","roles":["editor"]}}'`: no hay token. `localSto
 - Tema, filtros y sesión mínima sobreviven, sin tokens.
 - Carga y errores, en un lugar.
 
-<details>
+<details markdown="1">
 <summary>Código final de los archivos que cambiaron después de crearlos</summary>
 
 `src/main.js`:
@@ -685,7 +687,7 @@ npx vite --port 5174     # arranca la aplicación en http://localhost:5174
 
 **Básico.** Agrega a la tienda `ui` un dato `fontSize`, tamaño de letra, con valor `16`, y decide si va en `paths`.
 
-<details>
+<details markdown="1">
 <summary>Solución</summary>
 
 Sí va, porque lo eligió la persona. En `src/stores/ui.js` agrega `const fontSize = ref(16)` debajo de `toast`, añade `fontSize` al `return` y deja `paths: ['theme', 'filter', 'fontSize']`.
@@ -694,7 +696,7 @@ Sí va, porque lo eligió la persona. En `src/stores/ui.js` agrega `const fontSi
 
 **Medio.** Haz que el plugin de persistencia descarte lo guardado si tiene más de 30 días.
 
-<details>
+<details markdown="1">
 <summary>Solución</summary>
 
 En `src/plugins/persist.js`, guarda la fecha junto a los datos y revísala al leer. El archivo completo queda así (cambian `MAX_AGE`, el bloque del `try` de lectura y el `setItem`):
@@ -738,7 +740,7 @@ Lo guardado con el formato anterior no tiene `savedAt`: la comparación da falso
 
 **Avanzado.** Lo guardado es entrada externa: cualquiera lo edita en las herramientas del navegador. Agrega a `persist` una función `validate` que devuelva solo los campos con valores aceptables, y úsala antes del `$patch`.
 
-<details>
+<details markdown="1">
 <summary>Solución</summary>
 
 En `src/stores/ui.js`, dentro de `persist`:
@@ -776,3 +778,5 @@ if (saved) {
 | 2.0 | 2026-10-16 | Andrés Eduardo García Márquez | Guía reescrita para construir desde una carpeta vacía con Vite 6.4: todo el código en la guía, predicción y resultado visible por paso, repaso de la guardia del capítulo 3, persistencia y auditoría con plugins propios, y ejercicios de reserva con solución |
 | 2.1 | 2026-10-16 | Andrés Eduardo García Márquez | Validada por CLI (interfaz de línea de comandos) en Windows y Linux: el proyecto se crea con `npx --yes create-vite@6.4.1` y el servidor con `npx vite --port 5174`, porque PowerShell se come el `--`; predicción completa de la consola en el paso 5; tiempos 1 y 14 minutos en los pasos 1 y 3; Node.js mínimo probado; explicación del getter que devuelve una función, de `options` en el plugin y de `detached`; ejercicio medio con el archivo completo; dos problemas frecuentes nuevos |
 | 2.2 | 2026-10-17 | Andrés Eduardo García Márquez | El proyecto se crea con `create-vue` 3.16.4, la herramienta oficial de Vue que enseñan los manuales (`--bare --router --pinia`), en lugar de `create-vite` más la instalación manual de Pinia y Vue Router; tabla de lo que trae el proyecto y qué se reemplaza o se borra; el enrutador pasa a `src/router/index.js` y los imports usan el atajo `@/`; Vue DevTools viene integrado (`Alt + Shift + D`); predicción de la consola con los mensajes de las tiendas; problemas frecuentes de `create-vue`; `ejercicio-resuelto/` regenerado siguiendo la guía y validado por CLI en Windows y Linux |
+
+<!-- {% endraw %} -->

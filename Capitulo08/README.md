@@ -1,5 +1,8 @@
 # Práctica 8.4: diseñar y desplegar una aplicación escalable con pipeline automatizado
 
+<!-- lang: es-CO -->
+<!-- {% raw %} -->
+
 | Campo | Valor |
 |---|---|
 | Duración | 43 minutos |
@@ -637,7 +640,7 @@ Si no hiciste el paso opcional, quita `catalogo-platform:1.1.0` del segundo coma
 
 **Básico.** Agrega el estado `descontinuado` (texto `Descontinuado`) y una prueba que lo compruebe.
 
-<details><summary>Solución</summary>
+<details markdown="1"><summary>Solución</summary>
 
 En `estado.js`, suma `descontinuado: 'Descontinuado'` a `ETIQUETAS`. En `estado.test.js`, dentro del `describe`:
 
@@ -651,7 +654,7 @@ it('traduce descontinuado', () => {
 
 **Medio.** Haz que la imagen no reinstale dependencias cuando solo cambia el código.
 
-<details><summary>Solución</summary>
+<details markdown="1"><summary>Solución</summary>
 
 En la etapa 1, reemplaza `COPY . .` y el `RUN corepack ...` por:
 
@@ -668,7 +671,7 @@ COPY . .
 
 **Avanzado.** En `ci.yml`, guarda la carpeta compilada como artefacto `web-dist` para que un despliegue la descargue sin recompilar.
 
-<details><summary>Solución</summary>
+<details markdown="1"><summary>Solución</summary>
 
 Al final de los `steps` del trabajo `calidad`:
 
@@ -696,3 +699,5 @@ Cada archivo que escribes aparece completo una sola vez. `apps/web/src/main.js` 
 |---|---|---|---|
 | 2.0 | 2026-10-16 | Andrés Eduardo García Márquez | Guía reescrita desde carpeta vacía con todo el código; validada por CLI en Windows 11 y Linux; puerto 8088 para el contenedor; `npm install -g pnpm@9.15.4` en lugar de `corepack enable` en el equipo |
 | 2.1 | 2026-10-17 | Andrés Eduardo García Márquez | `apps/web` se crea con create-vue, la herramienta oficial que enseñan los manuales: `npx --yes create-vue@3.16.4 web --bare --router` dentro de `apps/` (con `apps/web` como nombre pregunta el nombre del paquete); el enrutador pasa a `src/router/index.js` con el atajo `@`; `main.js` de create-vue se conserva en el paso 2; nada se borra; `ejercicio-resuelto/` rehecho siguiendo la guía; validada paso a paso en Windows 11, incluido `docker build`, y con la pasada final en Linux |
+
+<!-- {% endraw %} -->
