@@ -67,6 +67,7 @@ Repaso de Vue básico: `ref`, `v-for` con `:key`, `v-model`, props y eventos (`d
    .encabezado { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; background: #fff; border-bottom: 1px solid #d2d2d7; }
    .encabezado h1 { margin: 0; font-size: 1.4rem; }
    .contenido { display: grid; grid-template-columns: 1fr 15rem; gap: 1.5rem; padding: 1.5rem; align-items: start; }
+   @media (max-width: 40rem) { .contenido { grid-template-columns: 1fr; } }
    .lista { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: 0.8rem; }
    .tarjeta, .medicion { position: relative; background: #fff; border: 1px solid #d2d2d7; border-radius: 12px; padding: 0.8rem; }
    .tarjeta h2 { font-size: 1rem; margin: 0 2rem 0.3rem 0; }
@@ -536,7 +537,7 @@ npx vite --port 5171     # arranca la aplicación en http://localhost:5171
 | La terminal muestra `Local: http://localhost:5172/` en vez de 5171 | Otro servidor ocupa el puerto 5171 y Vite tomó el siguiente | Cierra el otro servidor con `Ctrl + C` en su terminal, o abre la dirección que muestra la terminal |
 | Sigue el título "You did it!" o falla `Failed to resolve import "./components/ListaProductos.vue"` | `App.vue` todavía es el de create-vue, o falta crear `src/components/ListaProductos.vue` | Reemplaza todo `src/App.vue` (paso 1.2) y crea la carpeta `src/components` con sus dos archivos (pasos 1.3 y 1.4) |
 | La página queda en blanco tras guardar | Error de sintaxis en el archivo | Mira la consola de Chrome (`F12`) y la terminal: dicen el archivo y la línea |
-| `[Vue warn]: Property "esFavorito" was accessed during render but is not defined` | Guardaste `TarjetaProducto.vue` después de 4.3 y antes de 4.4 | Haz el cambio 4.4 y guarda; si la página no se recupera, recárgala con `F5` |
+| `[Vue warn]: Property "esFavorito" was accessed during render but is not defined` | Guardaste `TarjetaProducto.vue` después de 4.3 y antes de 4.4 | Haz el cambio 4.4, guarda y recarga con `F5` |
 | Las tarjetas siguen en 12 tras el paso 4 | La plantilla aún usa `esFavorito()` o la lista no pasa `:favorito` | Revisa los pasos 4.2 y 4.4 |
 | El producto nuevo no aparece | Falta el paso 5.3: con `shallowRef` hay que asignar una lista nueva | Cambia `push` por `productos.value = [...productos.value, nuevo]` |
 
