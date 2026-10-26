@@ -269,7 +269,7 @@ Al terminar podrás:
 
 **Qué debes ver:** Vitest repite solo las pruebas y marca en rojo el caso normal: `expected [] to deeply equal [ 1, 3 ]`, con el bloque `- Expected` y `+ Received`, la ubicación `❯ src/__tests__/filtrarProductos.spec.js:13:40` y un `^` debajo de la línea de `expect` que falló. Abajo queda `FAIL  Tests failed. Watching for file changes...`: sigue vigilando. "Mouse" empieza con mayúscula y ya no coincide con "mo".
 
-4. Deshaz el cambio (`Ctrl + Z`) y guarda: vuelve a `4 passed`. Pulsa `q` para salir del modo vigilancia.
+4. Deshaz el cambio (`Ctrl + Z`) y guarda: vuelve a verde (`3 passed`: en vigilancia Vitest repite solo las pruebas del archivo que cambió). Pulsa `q` para salir del modo vigilancia.
 
 ## Paso 4. Probar un componente por lo que muestra y avisa (7 minutos)
 
@@ -615,39 +615,39 @@ Son 3 tarjetas: Cypress atrapó la petición y respondió con la fixture. Busca 
 <details markdown="1">
 <summary>Código final de <code>package.json</code> (lo cambiaron el punto 2 y el punto 4 de la preparación)</summary>
 
-   ```json
-   {
-     "name": "lab07-pruebas",
-     "version": "0.0.0",
-     "private": true,
-     "type": "module",
-     "scripts": {
-       "dev": "vite",
-       "build": "vite build",
-       "preview": "vite preview --host 127.0.0.1 --port 4177 --strictPort",
-       "test:unit": "vitest",
-       "test:run": "vitest run",
-       "test:coverage": "vitest run --coverage",
-       "prepare": "cypress install",
-       "cy:run": "cypress run --e2e --browser chrome",
-       "test:e2e": "npm run build && start-server-and-test preview http://127.0.0.1:4177 cy:run"
-     },
-     "dependencies": {
-       "vue": "^3.5.13"
-     },
-     "devDependencies": {
-       "@vitejs/plugin-vue": "^5.2.3",
-       "@vitest/coverage-v8": "3.2.7",
-       "@vue/test-utils": "^2.4.6",
-       "cypress": "^14.2.1",
-       "jsdom": "^26.0.0",
-       "start-server-and-test": "^2.0.11",
-       "vite": "^6.2.4",
-       "vite-plugin-vue-devtools": "^7.7.2",
-       "vitest": "3.2.7"
-     }
-   }
-   ```
+```json
+{
+  "name": "lab07-pruebas",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4177 --strictPort",
+    "test:unit": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "prepare": "cypress install",
+    "cy:run": "cypress run --e2e --browser chrome",
+    "test:e2e": "npm run build && start-server-and-test preview http://127.0.0.1:4177 cy:run"
+  },
+  "dependencies": {
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.3",
+    "@vitest/coverage-v8": "3.2.7",
+    "@vue/test-utils": "^2.4.6",
+    "cypress": "^14.2.1",
+    "jsdom": "^26.0.0",
+    "start-server-and-test": "^2.0.11",
+    "vite": "^6.2.4",
+    "vite-plugin-vue-devtools": "^7.7.2",
+    "vitest": "3.2.7"
+  }
+}
+```
 
 Los demás archivos se escriben una sola vez y completos: el bloque de cada paso ya es su versión final. En `ejercicio-resuelto/` también están los archivos de create-vue que la guía no toca (`vite.config.js`, `jsconfig.json`, `cypress/support/`, `cypress/fixtures/example.json`, `.vscode/` y el `README.md` en inglés).
 

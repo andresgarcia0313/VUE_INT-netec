@@ -7,6 +7,7 @@ input { font: inherit; display: block; margin: 0.3rem 0 0.8rem; padding: 0.5rem;
 .encabezado { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; background: #fff; border-bottom: 1px solid #d2d2d7; }
 .encabezado h1 { margin: 0; font-size: 1.4rem; }
 .contenido { display: grid; grid-template-columns: 1fr 15rem; gap: 1.5rem; padding: 1.5rem; align-items: start; }
+@media (max-width: 40rem) { .contenido { grid-template-columns: 1fr; } }
 .lista { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: 0.8rem; }
 .tarjeta, .medicion { position: relative; background: #fff; border: 1px solid #d2d2d7; border-radius: 12px; padding: 0.8rem; }
 .tarjeta h2 { font-size: 1rem; margin: 0 2rem 0.3rem 0; }

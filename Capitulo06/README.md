@@ -268,7 +268,7 @@ Todos se vieron antes en el curso. Solo la forma de medir y las tres técnicas d
 
 2. Sirve la compilación con `npm run preview`. Queda corriendo en esa terminal hasta que la detengas. Abre una **ventana de incógnito** de Chrome (`Ctrl + Mayús + N`; así las extensiones no alteran la medida) en `http://localhost:4173`.
 
-3. Lighthouse: `F12`, pestaña **Lighthouse**, modo **Navegación** (Navigation), dispositivo **Escritorio** (Desktop), solo la categoría **Rendimiento** (Performance), y pulsa **Analizar carga de página**. Anota la puntuación, LCP (cuándo aparece lo principal) y TBT (cuánto tiempo estuvo bloqueado el navegador). Revisa los diagnósticos: aparece **Evita un tamaño excesivo del DOM** (Avoid an excessive DOM size) con unos 14.000 elementos; el DOM es el árbol de elementos de la página. En un equipo rápido la puntuación puede salir en 100: en ese caso compara TBT y el tamaño del DOM.
+3. Lighthouse: `F12`, pestaña **Lighthouse**, modo **Navegación** (Navigation), dispositivo **Escritorio** (Desktop), solo la categoría **Rendimiento** (Performance), y pulsa **Analizar carga de página**. Anota la puntuación, LCP (cuándo aparece lo principal) y TBT (cuánto tiempo estuvo bloqueado el navegador). Revisa los diagnósticos: aparece **Optimiza el tamaño del DOM** (Optimize DOM size; en versiones anteriores, Evita un tamaño excesivo del DOM) con unos 14.000 elementos; el DOM es el árbol de elementos de la página. En un equipo rápido la puntuación puede salir en 100: en ese caso compara TBT y el tamaño del DOM.
 
 4. Rendimiento: pestaña **Performance**, pulsa grabar (`Ctrl + E`), escribe `19` en el buscador y detén la grabación. En la pista **Timings** busca las barras `filtro`: son tus `performance.measure`. Al lado verás el trabajo de redibujar 2.000 filas.
 
@@ -335,7 +335,7 @@ Si `npm run preview` sigue abierto desde el paso 2, detenlo con `Ctrl + C` en su
 
 3. Ejecuta `npm run build:analisis` y abre en Chrome el archivo `estadisticas.html` que aparece en la carpeta del proyecto (arrástralo a una pestaña).
 
-**Qué debes ver:** un rectángulo grande con `vue` y `vue-router` dentro de `node_modules`, y uno pequeño con tus archivos de `src`. Vue pesa más que todo tu código junto.
+**Qué debes ver:** un rectángulo grande con `@vue` (el núcleo de Vue) y `vue-router` dentro de `node_modules`, y uno pequeño con tus archivos de `src`. Vue pesa más que todo tu código junto.
 
 ## Paso 4. Rutas diferidas y manualChunks (6 minutos)
 

@@ -535,7 +535,7 @@ Tres piezas pequeñas que aparecen en el código: `__typename` es el campo con e
 **Qué debes ver:**
 
 - Campo vacío: debajo del campo, `El título es obligatorio.`; en **Network**, `tasks` con estado **422**, y en **Console** la línea roja `Failed to load resource: ... 422`, provocada a propósito. La aplicación sigue respondiendo.
-- Escribe `Probar en Chrome` y crea la tarea: aparece en la lista, `tasks` responde **201** y sale una petición `graphql` nueva, la del `network-only`.
+- Escribe `Probar en Chrome` y crea la tarea: aparece en la lista, `tasks` responde **201** y sale una petición `graphql` nueva, la del `network-only`. El panel de caché pasa a 6 entradas: la tarea nueva también se guarda una sola vez.
 - Pulsa **Cerrar sesión** y crea otra tarea: arriba, `La sesión no es válida o ha expirado.`, y `tasks` con **401**. La lista y el proyecto siguen en pantalla porque `logout` solo borra el token; quien rechaza es el servidor. Pulsa **Iniciar sesión** antes de seguir.
 
 > Si guardas `handlers.js` o `main.js`, Vite recarga la página y las tareas que creaste desaparecen: los datos simulados viven en memoria. El token sigue, porque está en `localStorage`.

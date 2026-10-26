@@ -413,11 +413,11 @@ Todos se vieron en las diapositivas del capítulo 2, salvo el que se indica:
 
 ## Paso 5. Comprobar el contexto y retirar la versión anterior (3 minutos)
 
-1. **Opcional, si te alcanza el tiempo (1 minuto). Predice:** si un componente pide el contexto fuera de `ProjectHubView`, ¿qué pasa? Pruébalo: en `src/App.vue`, agrega `import TaskCollectionProvider from './TaskCollectionProvider.vue'` y, debajo de `<ProjectHubView />`, agrega `<TaskCollectionProvider />`. Guarda.
+1. **Opcional, si te alcanza el tiempo (1 minuto). Predice:** si un componente pide el contexto fuera de `ProjectHubView`, ¿qué pasa? Pruébalo: en `src/App.vue`, agrega `import TaskCollectionProvider from './TaskCollectionProvider.vue'` y, debajo de `<ProjectHubView />`, agrega `<TaskCollectionProvider />`. Guarda y recarga con `F5`.
 
    **Qué debes ver:** la consola de Chrome (`F12`) muestra dos avisos amarillos, `[Vue warn]: injection "Symbol(projectHub)" not found` (Vue no encontró quién ofreciera esa clave) y `[Vue warn]: Unhandled error during execution of setup function`, y luego en rojo `Uncaught Error: useProjectHubContext debe utilizarse dentro de ProjectHubView`. La página queda en blanco, porque el error detiene el montaje de toda la aplicación. El error dice qué falta y dónde. Quita las dos líneas que agregaste, guarda y recarga con `F5`.
 
-2. Retira la versión anterior. Reemplaza todo `src/App.vue` por este y borra el archivo `src/TareasOpciones.vue`:
+2. Retira la versión anterior. Reemplaza todo `src/App.vue` por este y borra el archivo `src/TareasOpciones.vue` (si la consola muestra en rojo `[vite] Failed to reload /src/TareasOpciones.vue`, recarga con `F5`: Vite todavía recordaba el archivo borrado):
 
    ```vue
    <script setup>
