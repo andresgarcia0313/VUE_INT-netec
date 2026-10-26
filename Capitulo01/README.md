@@ -1,5 +1,7 @@
-<!-- lang: es-CO -->
 # Práctica 1.4: diagnóstico y optimización de dibujos en una SPA
+
+<!-- lang: es-CO -->
+<!-- {% raw %} -->
 
 | Campo | Valor |
 |---|---|
@@ -402,7 +404,7 @@ Antes de empezar, ten presente que cada vez que guardas `App.vue`, Vite vuelve a
 
 Pulsa **Reiniciar contadores** y marca una estrella. Anota los tres números en la columna "Después" de la tabla del paso 2 y compárala con tu predicción.
 
-<details>
+<details markdown="1">
 <summary>Cifras esperadas</summary>
 
 | Medición tras marcar un favorito | Antes | Después |
@@ -422,7 +424,7 @@ La lista se sigue dibujando una vez porque muestra "Favoritos: N de 13 productos
 - Filtro con `computed`, sin cálculos repetidos.
 - Dibujos de las tarjetas: de 12 a 1.
 
-<details>
+<details markdown="1">
 <summary>Código final de <code>src/components/ListaProductos.vue</code></summary>
 
 ```html
@@ -466,7 +468,7 @@ onUpdated(() => contar('lista'))                      // cuenta cada vez que la 
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>Código final de <code>src/components/TarjetaProducto.vue</code></summary>
 
 ```html
@@ -502,7 +504,7 @@ onUpdated(() => contar('tarjetas'))                  // cuenta cada vez que esta
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>Cambios finales de <code>src/App.vue</code> (el resto queda igual que en el paso 1)</summary>
 
 ```js
@@ -548,7 +550,7 @@ Para quien termina antes. Todos se hacen sobre tu catálogo.
 
 **Básico. Un dato que la plantilla no lee no redibuja nada.** En `App.vue` agrega `const visitas = ref(0)` y un botón "Registrar visita" que solo haga `visitas.value++` y lo muestre con `console.log`. Predice los contadores y compruébalo.
 
-<details>
+<details markdown="1">
 <summary>Solución</summary>
 
 ```html
@@ -568,7 +570,7 @@ Los tres contadores quedan en **0**: Vue solo redibuja lo que leyó el dato que 
 
 **Medio. Buscar sin tildes.** Escribe "camara" y no aparece "Cámara web". Haz que la búsqueda ignore las tildes.
 
-<details>
+<details markdown="1">
 <summary>Solución</summary>
 
 ```js
@@ -585,7 +587,7 @@ return productos.value.filter((p) => sinTildes(p.nombre).includes(texto))
 
 **Avanzado. v-memo.** Al marcar una estrella, la lista vuelve a recorrer sus 12 `<li>` para compararlos. Cuéntalo y redúcelo a 1 con `v-memo`, que solo vuelve a dibujar un elemento si cambia lo que tú declaras.
 
-<details>
+<details markdown="1">
 <summary>Solución</summary>
 
 ```html
@@ -619,3 +621,5 @@ Enlaces comprobados el 18 de octubre de 2026.
 | 2.0 | 2026-10-16 | Andrés Eduardo García Márquez | Arranque en carpeta vacía con `npm create vite@6.4`: la guía trae todo el código. Búsqueda local en la lista, panel dentro de `App.vue`, medición opcional en la pestaña Rendimiento de Chrome, ejercicios de reserva con solución desplegable (incluido `v-memo`). Puerto 5171 |
 | 2.1 | 2026-10-16 | Andrés Eduardo García Márquez | Validada por CLI en Windows 11 (PowerShell) y Linux desde carpeta vacía. `npx create-vite@6.4` en lugar de `npm create vite@6.4 ... -- --template vue`, que en PowerShell se queda en `Select a framework:`. Contadores iniciales reales (0, 0 y 1). Tiempos por paso que suman 24 minutos, opcional de Chrome fuera del tiempo, aviso de guardado en 4.3 y 4.4 y de `App.vue` antes de 5.2, cambios de `App.vue` en dos bloques, columna "Después" medida de nuevo, 13 productos, expresión regular `\u0300-\u036f` e imágenes con el número de paso real |
 | 2.2 | 2026-10-18 | Andrés Eduardo García Márquez | El proyecto se crea con create-vue, la herramienta oficial que enseñan los manuales: `npx --yes create-vue@3.16.4 catalogo --default --bare`. La guía dice qué trae el proyecto; ya no se borra `HelloWorld.vue` ni se reemplaza `vite.config.js` (el puerto se da con `npx vite --port 5171`); `src/style.css` y `src/components/` se crean. Node.js 20, 22 o 24; sin imágenes; problemas frecuentes de create-vue y del puerto ocupado; `ejercicio-resuelto/` rehecho siguiendo la guía. Validada paso a paso en Windows 11 y en Linux con Node.js 24.22.0 |
+
+<!-- {% endraw %} -->

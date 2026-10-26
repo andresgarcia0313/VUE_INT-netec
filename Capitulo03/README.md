@@ -1,5 +1,8 @@
 # Práctica 3.4: flujo de autenticación con rutas protegidas y carga dinámica
 
+<!-- lang: es-CO -->
+<!-- {% raw %} -->
+
 | Campo | Valor |
 |---|---|
 | Duración | 46 minutos |
@@ -505,7 +508,7 @@ Marca cada resultado de la diapositiva "Resultados esperados":
 | Las vistas protegidas se descargan al visitarlas | Paso 3, `npm run build` y pestaña Network |
 | Ruta inválida: `NotFoundView`. Fragmento perdido: `ChunkRecoveryView` | Pasos 1 y 4 |
 
-<details>
+<details markdown="1">
 <summary>Código final de <code>src/router/index.js</code> (el único archivo que cambió después de crearlo)</summary>
 
 ```js
@@ -608,7 +611,7 @@ Pulsa `Ctrl + C` en la terminal de `npm run dev` o de `npm run preview`. Puedes 
 
 **Básico.** Haz que `/app/tasks/abc` caiga en "Página no encontrada" y que solo se acepten identificadores como `task-202`.
 
-<details><summary>Solución</summary>
+<details markdown="1"><summary>Solución</summary>
 
 En la ruta hija, cambia el `path` por `'tasks/:taskId(task-\\d+)'`: la expresión entre paréntesis exige `task-` seguido de dígitos. `/app/tasks/abc` ya no coincide y cae en el comodín.
 
@@ -616,7 +619,7 @@ En la ruta hija, cambia el `path` por `'tasks/:taskId(task-\\d+)'`: la expresió
 
 **Medio.** Precarga Administración cuando la persona pasa el puntero sobre su enlace, y comprueba en Network que pasarlo diez veces produce una sola descarga.
 
-<details><summary>Solución</summary>
+<details markdown="1"><summary>Solución</summary>
 
 En `src/views/ProjectHubLayout.vue`, dentro de `<script setup>`, agrega:
 
@@ -630,7 +633,7 @@ Y en el enlace de Administración agrega el evento: `<RouterLink :to="{ name: 'a
 
 **Avanzado.** Ante un fragmento perdido, recarga sola una única vez; si vuelve a fallar, muestra la pantalla de rescate.
 
-<details><summary>Solución</summary>
+<details markdown="1"><summary>Solución</summary>
 
 En `router.onError`, antes del `router.replace`:
 
@@ -660,3 +663,5 @@ Al probarlo con el paso 4: el primer fallo recarga y te pide ingresar otra vez (
 - [Guardias de navegación](https://router.vuejs.org/guide/advanced/navigation-guards): su orden y lo que pueden devolver.
 - [Campos meta](https://router.vuejs.org/guide/advanced/meta): declarar los requisitos de cada ruta.
 - [Carga perezosa de rutas](https://router.vuejs.org/guide/advanced/lazy-loading): descargar cada vista solo cuando alguien la pide.
+
+<!-- {% endraw %} -->

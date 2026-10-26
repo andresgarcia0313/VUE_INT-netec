@@ -1,5 +1,7 @@
-<!-- lang: es-CO -->
 # Práctica 7.4: crear una estrategia de pruebas para una aplicación Vue
+
+<!-- lang: es-CO -->
+<!-- {% raw %} -->
 
 | Campo | Valor |
 |---|---|
@@ -114,39 +116,39 @@ Al terminar podrás:
 
 **Dónde:** crea la carpeta `docs` en la raíz del proyecto, al lado de `package.json`, y dentro el archivo `docs/test-strategy.md`.
 
-   ```md
-   # Estrategia de pruebas de Catálogo Pro
+```md
+# Estrategia de pruebas de Catálogo Pro
 
-   ## Pirámide de pruebas
+## Pirámide de pruebas
 
-   | Nivel | Proporción | Qué cubre | Herramienta |
-   |---|---:|---|---|
-   | Unitarias | 60 % | Funciones puras, como filtrarProductos | Vitest |
-   | Componentes | 30 % | Lo que un componente muestra y avisa | Vue Test Utils y jsdom |
-   | E2E | 10 % | Recorridos que no pueden fallar | Cypress en Chrome |
+| Nivel | Proporción | Qué cubre | Herramienta |
+|---|---:|---|---|
+| Unitarias | 60 % | Funciones puras, como filtrarProductos | Vitest |
+| Componentes | 30 % | Lo que un componente muestra y avisa | Vue Test Utils y jsdom |
+| E2E | 10 % | Recorridos que no pueden fallar | Cypress en Chrome |
 
-   ## Riesgos priorizados
+## Riesgos priorizados
 
-   | Riesgo | Impacto | Dónde se prueba |
-   |---|---|---|
-   | El filtro muestra productos equivocados | Alto | Unitaria y E2E |
-   | La estrella no marca o no desmarca el favorito | Alto | Componente y E2E |
-   | El servidor falla y la pantalla queda en blanco | Alto | Componente y E2E |
+| Riesgo | Impacto | Dónde se prueba |
+|---|---|---|
+| El filtro muestra productos equivocados | Alto | Unitaria y E2E |
+| La estrella no marca o no desmarca el favorito | Alto | Componente y E2E |
+| El servidor falla y la pantalla queda en blanco | Alto | Componente y E2E |
 
-   ## Pruebas excluidas
+## Pruebas excluidas
 
-   - Comparar píxeles: se rompe con cada cambio de estilo.
-   - Medir rendimiento dentro de jsdom: jsdom no dibuja de verdad.
-   - Cada combinación de filtros en E2E: es lento y ya lo cubren las unitarias.
-   - El servidor real: las E2E responden con datos fijos.
+- Comparar píxeles: se rompe con cada cambio de estilo.
+- Medir rendimiento dentro de jsdom: jsdom no dibuja de verdad.
+- Cada combinación de filtros en E2E: es lento y ya lo cubren las unitarias.
+- El servidor real: las E2E responden con datos fijos.
 
-   ## Criterios de calidad
+## Criterios de calidad
 
-   - npm run test:run y npm run test:e2e en verde antes de entregar un cambio.
-   - Cobertura mínima: 80 % de líneas, funciones y sentencias; 75 % de ramas.
-   - Ninguna E2E espera un número fijo de milisegundos.
-   - Todo error corregido llega con una prueba que lo habría detectado.
-   ```
+- npm run test:run y npm run test:e2e en verde antes de entregar un cambio.
+- Cobertura mínima: 80 % de líneas, funciones y sentencias; 75 % de ramas.
+- Ninguna E2E espera un número fijo de milisegundos.
+- Todo error corregido llega con una prueba que lo habría detectado.
+```
 
 **Hazlo tuyo (opcional, si te sobra tiempo al final):** agrega una fila a "Riesgos priorizados" y una línea a "Pruebas excluidas" pensando en un proyecto de tu trabajo.
 
@@ -610,7 +612,7 @@ Son 3 tarjetas: Cypress atrapó la petición y respondió con la fixture. Busca 
 - `npm run test:coverage`: reporte V8 con 80 % de líneas o más.
 - `npm run test:e2e`: tres recorridos de Cypress aprobados en Chrome.
 
-<details>
+<details markdown="1">
 <summary>Código final de <code>package.json</code> (lo cambiaron el punto 2 y el punto 4 de la preparación)</summary>
 
    ```json
@@ -688,7 +690,7 @@ npm run test:run         # corre las pruebas unitarias y de componentes
 
 **Básico.** Agrega a `src/__tests__/filtrarProductos.spec.js` un caso que compruebe que `'  monitor  '`, con espacios alrededor, encuentra solo el producto 3.
 
-<details>
+<details markdown="1">
 <summary>Solución</summary>
 
 ```js
@@ -701,7 +703,7 @@ it('ignora los espacios alrededor del texto', () => {               // otro caso
 
 **Medio.** Prueba que la tarjeta marcada como favorito anuncia al lector de pantalla "Quitar de favoritos: Teclado".
 
-<details>
+<details markdown="1">
 <summary>Solución</summary>
 
 ```js
@@ -715,7 +717,7 @@ it('anuncia la acción correcta al lector de pantalla', () => {
 
 **Avanzado.** Agrega una E2E que escriba "zzz" y compruebe el mensaje "No hay productos con ese nombre.". Agrega primero `data-cy="vacio"` a ese párrafo en `App.vue`.
 
-<details>
+<details markdown="1">
 <summary>Solución</summary>
 
 ```js
@@ -744,3 +746,5 @@ it('avisa cuando ningún producto coincide', () => {
 | 2.0 | 2026-10-16 | Andrés Eduardo García Márquez | Guía reescrita para construir desde una carpeta vacía con Vite 6.4: estrategia de pruebas, Vitest, Vue Test Utils y Cypress con todo el código en la guía |
 | 2.1 | 2026-10-16 | Andrés Eduardo García Márquez | Validada por CLI (interfaz de línea de comandos) en Windows 11 (PowerShell) y Linux: proyecto con `npx --yes create-vite@6.4.1`, servidor con `npx vite --port 5177` y `preview` en el puerto propio 4177; `npx cypress install` explícito; prueba nueva del favorito en `App.test.js` (sin ella la cobertura de funciones quedaba en 75 %); borrado de `HelloWorld.vue` igual en los tres sistemas; mensaje real de Vitest en el paso 3; conceptos `enableAutoUnmount`, `mockResolvedValue`, `mockRejectedValue`, `toHaveBeenCalledOnce` y `start-server-and-test`; tiempos 3 y 10 minutos en los pasos 1 y 5; el capítulo 8 ya no depende de este proyecto |
 | 2.2 | 2026-10-17 | Andrés Eduardo García Márquez | Proyecto creado con create-vue, la herramienta oficial de Vue, como enseña el manual: `npx --yes create-vue@3.16.4 lab07-pruebas --bare --vitest --cypress`; tabla de lo que trae el proyecto y qué se reemplaza o borra; configuración de pruebas en `vitest.config.js` y pruebas en `src/__tests__/*.spec.js`; scripts con los nombres de create-vue (`test:unit`, `test:e2e`, `prepare`); solo `@vitest/coverage-v8` se instala aparte; ya no se borra `HelloWorld.vue` ni se importa `style.css`. Validada por CLI en Windows 11 con Cypress real y en Linux |
+
+<!-- {% endraw %} -->

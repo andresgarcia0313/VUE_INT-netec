@@ -4,6 +4,9 @@ lang: es-CO
 
 # Práctica 5.4: clientes REST y GraphQL con manejo de caché y errores
 
+<!-- lang: es-CO -->
+<!-- {% raw %} -->
+
 | Campo | Valor |
 |---|---|
 | Duración | 46 minutos |
@@ -537,7 +540,7 @@ Tres piezas pequeñas que aparecen en el código: `__typename` es el campo con e
 
 > Si guardas `handlers.js` o `main.js`, Vite recarga la página y las tareas que creaste desaparecen: los datos simulados viven en memoria. El token sigue, porque está en `localStorage`.
 
-<details>
+<details markdown="1">
 <summary>Código final de ProjectDetail.vue</summary>
 
 ```vue
@@ -616,7 +619,7 @@ npx vite --port 5175     # arranca la aplicación en http://localhost:5175
 
 **Básico.** Agrega en `App.vue` un botón que abra el proyecto `p-999`, que no existe. ¿Qué aviso sale y qué `type` lo produjo?
 
-<details>
+<details markdown="1">
 <summary>Solución</summary>
 
 ```vue
@@ -629,7 +632,7 @@ Sale `Proyecto no encontrado.`: el servidor GraphQL respondió con `errors` y `n
 
 **Medio.** Haz que la lista tarde 2 segundos y que el cliente espere solo 1. ¿Qué aviso ves ahora?
 
-<details>
+<details markdown="1">
 <summary>Solución</summary>
 
 En `handlers.js`, importa `delay` y espera antes de responder; en `restClient.js`, cambia `timeout: 8000` por `timeout: 1000`:
@@ -648,7 +651,7 @@ Sale `El servidor tardó demasiado.` (`type: 'timeout'`). Deja los valores como 
 
 **Avanzado.** Con un TTL (time to live, tiempo de vida) de 30 segundos, haz que `loadProjects` no vuelva a pedir la lista si la pidió hace menos de 30 segundos, salvo que reciba `force` en `true`.
 
-<details>
+<details markdown="1">
 <summary>Solución</summary>
 
 ```js
@@ -679,3 +682,5 @@ En `login()`, llama `loadProjects(true)`: al iniciar sesión siempre se pide de 
 | 2.2 | 2026-10-17 | Andrés Eduardo García Márquez | El proyecto se crea con create-vue, como enseñan los manuales: `npx --yes create-vue@3.16.4 lab05-projecthub --bare --pinia`. Pinia sale de la lista de `npm install` porque la trae create-vue. Se describe qué trae el proyecto y se borra `src/stores/counter.js`; desaparece el borrado de `HelloWorld.vue`, `assets/` y `style.css`. Aviso del botón de Vue DevTools. `ejercicio-resuelto/` rehecho siguiendo la guía. Validada por CLI en Windows y Linux |
 | 2.1 | 2026-10-16 | Andrés Eduardo García Márquez | Validada por CLI desde carpeta vacía en Windows y Linux. `npx --yes create-vite@6.4` y `npx vite --port 5175` (en PowerShell `npm` pierde el `--`). Axios 1.20.0 en lugar de 1.12.2 (`npm audit` marcaba una vulnerabilidad alta). Borrado de la plantilla movido al paso 4. Consola del paso 2 muestra `type`, `status` y `message`. Filtro **Fetch/XHR** para contar peticiones `graphql`. Orden real de `cacheKeys()`. Recarga de Vite anunciada como normal. Rótulos por sistema en el paso 6. Notas de `__typename`, `cache.extract()`, `import.meta.env.DEV`, Urql y del `logout`. Tiempos de los pasos 3, 4 y 6 ajustados (total 46). Tres filas nuevas en Problemas frecuentes |
 | 2.0 | 2026-10-16 | Andrés Eduardo García Márquez | Guía rehecha desde carpeta vacía con `npm create vite@6.4`, sin clonar ni depender del laboratorio anterior. Servidor simulado relativo con `__typename` para que Apollo normalice. `cache-first` y `network-only` en lugar de `cache-and-network`. Un solo `AppError`. Panel de caché visible. Predicción y resultado por paso, ejercicios de reserva y carpeta `solucion/` |
+
+<!-- {% endraw %} -->

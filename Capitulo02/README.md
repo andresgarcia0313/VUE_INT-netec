@@ -1,5 +1,8 @@
 # Práctica 2.4: refactorizar componentes a Composition API y crear composables
 
+<!-- lang: es-CO -->
+<!-- {% raw %} -->
+
 | Campo | Valor |
 |---|---|
 | Duración | 30 minutos |
@@ -485,7 +488,7 @@ En la terminal del servidor, pulsa `Ctrl + C` para detenerlo.
 
 **Básico (renderless).** Debajo de la lista, usa otra vez `TaskCollectionProvider` para mostrar solo "N tareas visibles".
 
-<details><summary>Solución</summary>
+<details markdown="1"><summary>Solución</summary>
 
 Dentro de `<section>` en `src/ProjectHubView.vue`:
 
@@ -499,7 +502,7 @@ Dentro de `<section>` en `src/ProjectHubView.vue`:
 
 **Medio (plugin).** Crea un plugin `formatoFecha` que ofrezca a toda la aplicación una función para escribir fechas en español de Colombia, instálalo con `app.use` y muestra "Hoy: ..." en `ProjectHubView`.
 
-<details><summary>Solución</summary>
+<details markdown="1"><summary>Solución</summary>
 
 `src/formatoFecha.js`:
 
@@ -519,7 +522,7 @@ En `src/main.js`: `import { formatoFecha } from './formatoFecha.js'` y `createAp
 
 **Avanzado (HOC, componente de orden superior).** Crea `conPermiso(Componente, permitido)`, que devuelve un componente que muestra el original solo si `permitido` es `true`, y úsalo en `App.vue` con `ProjectHubView`.
 
-<details><summary>Solución</summary>
+<details markdown="1"><summary>Solución</summary>
 
 `src/conPermiso.js`:
 
@@ -556,3 +559,5 @@ En `App.vue`: `import { conPermiso } from './conPermiso.js'`, `const ProjectHubS
 | 2.0 | 2026-10-16 | Andrés Eduardo García Márquez | Guía reescrita: el proyecto se crea desde una carpeta vacía con Vite 6.4 y todo el código está en la guía; parte de una versión en Options API; predicción y resultado visible en cada paso; ejercicios de reserva con solución; `npm run build` como prueba final |
 | 2.1 | 2026-10-16 | Andrés Eduardo García Márquez | Validada por CLI en Windows 11 (PowerShell) y Linux: el proyecto se crea con `npx --yes create-vite@6.4` y el servidor arranca con `npx vite --port 5172`, porque PowerShell se come el `--` de `npm create ... -- --template` y de `npm run dev -- --port`; Node 20 o 22; aviso de borrar `HelloWorld.vue` al final del paso 1; paso opcional de la rama de error; paso 4 con el archivo completo; aclaración del slot; paso 5.1 opcional con los avisos reales de la consola; problemas frecuentes con las dos fallas reales |
 | 2.2 | 2026-10-17 | Andrés Eduardo García Márquez | El proyecto se crea con create-vue, la herramienta oficial que enseñan los manuales: `npx --yes create-vue@3.16.4 lab02-composables --default --bare` (sin `--default` hace preguntas); la guía dice qué trae el proyecto, que `src/main.js` no cambia y que no se borra nada; `ejercicio-resuelto/` rehecho siguiendo la guía; validada paso a paso en Windows 11 y con la pasada final en Linux |
+
+<!-- {% endraw %} -->

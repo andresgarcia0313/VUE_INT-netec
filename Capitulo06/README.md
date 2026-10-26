@@ -1,5 +1,7 @@
-<!-- Idioma: es-CO -->
 # Práctica 6.4: aplicar optimizaciones y medir mejoras en una SPA real
+
+<!-- lang: es-CO -->
+<!-- {% raw %} -->
 
 | Campo | Valor |
 |---|---|
@@ -572,7 +574,7 @@ En cada terminal con un servidor (`dev` o `preview`), pulsa `Ctrl + C`.
 
 **Básico.** ¿Cada cuánto se redibuja la lista virtual? En `ListaVirtual.vue`, agrega `onUpdated` al `import` de `vue` (el gancho del ciclo de vida que corre después de cada redibujo) y, debajo de `const RESERVA = 4`, la línea `onUpdated(() => console.count('Redibujos de la lista'))`. Desplázate despacio por la lista: ¿cada cuántos píxeles suma uno?
 
-<details>
+<details markdown="1">
 <summary>Solución</summary>
 
 En los primeros 280 píxeles no suma nada: por la reserva de 4 filas, `inicio` se queda en 0. Desde ahí suma uno cada 56 píxeles, cuando una fila entra o sale de la caja. Un desplazamiento menor cambia `scrollTop`, pero `inicio`, `visibles` y `mover` dan el mismo resultado, y Vue no redibuja.
@@ -581,7 +583,7 @@ En los primeros 280 píxeles no suma nada: por la reserva de 4 filas, `inicio` s
 
 **Medio.** Agrega al catálogo un selector de tipo (Audio, Cómputo, Hogar, Oficina) que filtre en el **mismo** `computed`, en un solo recorrido.
 
-<details>
+<details markdown="1">
 <summary>Solución</summary>
 
 ```js
@@ -604,7 +606,7 @@ const resultado = productos.value.filter((p) =>
 
 **Avanzado.** Precarga el fragmento de Reportes cuando el cursor pasa por su enlace o el teclado le da el foco, y compruébalo en Network con `npm run preview`.
 
-<details>
+<details markdown="1">
 <summary>Solución</summary>
 
 En `App.vue`:
@@ -625,7 +627,7 @@ function precargar() { import('./views/ReportesView.vue') }          // pide el 
 
 ## Código final de los archivos que cambiaron
 
-<details>
+<details markdown="1">
 <summary>src/router/index.js</summary>
 
 ```js
@@ -644,7 +646,7 @@ export default createRouter({
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>vite.config.js</summary>
 
 ```js
@@ -686,7 +688,7 @@ export default defineConfig(({ mode }) => ({                 // mode vale 'anali
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>src/views/CatalogoView.vue</summary>
 
 ```html
@@ -741,7 +743,7 @@ function contarNodos() {                                             // cuenta l
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>src/components/ListaVirtual.vue</summary>
 
 ```html
@@ -797,7 +799,7 @@ function alDesplazar(e) {                                            // corre en
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>src/components/FilaProducto.vue</summary>
 
 ```html
@@ -841,3 +843,5 @@ const emit = defineEmits(['vender'])              // aviso que la fila le manda 
 | 2.0 | 2026-10-16 | Andrés Eduardo García Márquez | Guía reescrita: se construye desde una carpeta vacía con todo el código en la guía, sin repositorio inicial; 8 pasos de 46 minutos con predicción y resultado visible en cada uno |
 | 2.1 | 2026-10-16 | Andrés Eduardo García Márquez | Validada por línea de comandos en Windows 11 y Linux: `npx --yes create-vite@6.4`; Node 20 o 22; vista Reportes recortada (131 líneas para copiar en el paso 1); explicación de `defineProps` desestructurado en Vue 3.5 y de `[\\/]`; `Ctrl + C` al cambiar de servidor; predicción de `v-memo` antes del resultado; tamaños reales del paquete y de Lighthouse; ejercicio básico con `onUpdated` (`onRenderTriggered` no informa el dato cuando el cambio llega por un `computed`); tiempos 5-9-7-2-6-4-6-2-5 |
 | 2.2 | 2026-10-17 | Andrés Eduardo García Márquez | El proyecto se crea con create-vue, la herramienta oficial de Vue que enseñan los manuales: `npx --yes create-vue@3.16.4 catalogo-pro --bare --router` (Vue Router ya conectado; sale el `npm install vue-router` manual y el borrado de archivos de la plantilla); tabla de lo que trae el proyecto; `src/router/index.js` en lugar de `src/router.js`; `vite.config.js` conserva Vue DevTools y el atajo `@`; logotipo `public/favicon.ico` en el paso opcional; tamaños del paquete medidos de nuevo (96 kB antes; 93 kB de Vue y 6 kB propios después); dos filas nuevas en Problemas frecuentes. Validada por línea de comandos en Windows 11 y Linux |
+
+<!-- {% endraw %} -->
