@@ -20,7 +20,6 @@ Así se ve al final, con sesión de administradora:
 ```text
 ProjectHub - Ada (admin) [Cerrar sesión]
 Tablero | Proyectos | Tarea 202 | Administración
-------------------------------------------------
 Detalle de tarea
 Tarea recibida desde la dirección: task-202
 ```
