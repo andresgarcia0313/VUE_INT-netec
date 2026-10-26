@@ -1,7 +1,3 @@
----
-lang: es-CO
----
-
 # Práctica 5.4: clientes REST y GraphQL con manejo de caché y errores
 
 <!-- lang: es-CO -->
