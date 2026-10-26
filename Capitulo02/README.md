@@ -459,7 +459,7 @@ Cada archivo final aparece completo en su paso: los composables en los pasos 2 y
 
 ## Laboratorio resuelto
 
-La carpeta [`ejercicio-resuelto/`](ejercicio-resuelto/) de este capítulo tiene el proyecto terminado, igual al que construyes con esta guía. Úsalo para comparar al final o si te atascas: lo que se aprende está en escribirlo tú.
+La carpeta [`ejercicio-resuelto/`](https://github.com/netec-mx/VUE_INT/tree/main/Capitulo02/ejercicio-resuelto) de este capítulo tiene el proyecto terminado, igual al que construyes con esta guía. Úsalo para comparar al final o si te atascas: lo que se aprende está en escribirlo tú.
 
 ```bash
 cd ejercicio-resuelto
