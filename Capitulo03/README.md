@@ -580,6 +580,8 @@ export default router                                           // main.js lo co
 
 La carpeta [`ejercicio-resuelto/`](https://github.com/netec-mx/VUE_INT/tree/main/Capitulo03/ejercicio-resuelto) de este capítulo tiene el proyecto terminado, igual al que construyes con esta guía. Úsalo para comparar al final o si te atascas: lo que se aprende está en escribirlo tú.
 
+La carpeta [`solucion-por-pasos/`](solucion-por-pasos/) tiene el proyecto como queda al terminar cada paso, con comentarios que explican cada concepto y la captura de lo que debes ver. Sirve para mostrar en clase un paso sin construir los anteriores.
+
 ```bash
 cd ejercicio-resuelto
 npm install              # instala las dependencias
