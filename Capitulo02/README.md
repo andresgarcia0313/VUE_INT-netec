@@ -40,7 +40,7 @@ Todos se vieron en las diapositivas del capítulo 2, salvo el que se indica:
 
 ## Preparación (4 minutos)
 
-1. Abre una terminal en la carpeta donde guardas tus prácticas y crea el proyecto con create-vue, la herramienta oficial de Vue (la misma de `npm create vue@latest` del capítulo 0), en una versión fija que funciona con Node 20 y 22. El comando es igual en Windows (PowerShell), macOS y Linux:
+1. Abre una terminal en la carpeta donde guardas tus prácticas y crea el proyecto con create-vue, la herramienta oficial de Vue (la misma de `npm create vue@latest` del capítulo 0), en una versión fija que funciona con Node 24. El comando es igual en Windows (PowerShell), macOS y Linux:
 
    ```bash
    npx --yes create-vue@3.16.4 lab02-composables --default --bare
@@ -460,6 +460,8 @@ Cada archivo final aparece completo en su paso: los composables en los pasos 2 y
 ## Laboratorio resuelto
 
 La carpeta [`ejercicio-resuelto/`](https://github.com/netec-mx/VUE_INT/tree/main/Capitulo02/ejercicio-resuelto) de este capítulo tiene el proyecto terminado, igual al que construyes con esta guía. Úsalo para comparar al final o si te atascas: lo que se aprende está en escribirlo tú.
+
+La carpeta [`solucion-por-pasos/`](solucion-por-pasos/) tiene el proyecto como queda al terminar cada paso, con comentarios que explican cada concepto y la captura de lo que debes ver. Sirve para mostrar en clase un paso sin construir los anteriores.
 
 ```bash
 cd ejercicio-resuelto
