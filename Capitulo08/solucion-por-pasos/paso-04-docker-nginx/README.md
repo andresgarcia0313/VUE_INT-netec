@@ -1,5 +1,7 @@
 # Capítulo 8 - Paso 4. Imagen Docker con Nginx, salud y versión
 
+<!-- {% raw %} -->
+
 <!-- lang: es-CO -->
 
 Monorepo con el código acumulado hasta este paso de la Práctica 8.4 (Catálogo Pro con pnpm workspaces, Docker y GitHub Actions). Los comentarios del código explican cada concepto.
@@ -35,3 +37,5 @@ Según la guía: `healthy`, `HTTP/1.1 200 OK` con `ok` en `/health` y `200 OK` e
 ![`http://127.0.0.1:8088/catalogo` servido por el contenedor (por un túnel SSH al equipo de Docker): el catálogo con sus etiquetas y el evento de navegación con `version: "1.0.0"`.](captura-navegador.png)
 
 *`http://127.0.0.1:8088/catalogo` servido por el contenedor (por un túnel SSH al equipo de Docker): el catálogo con sus etiquetas y el evento de navegación con `version: "1.0.0"`.*
+
+<!-- {% endraw %} -->

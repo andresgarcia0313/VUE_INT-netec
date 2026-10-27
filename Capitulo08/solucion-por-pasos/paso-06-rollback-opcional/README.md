@@ -1,5 +1,7 @@
 # Capítulo 8 - Paso opcional. Rollback por etiqueta
 
+<!-- {% raw %} -->
+
 <!-- lang: es-CO -->
 
 Monorepo con el código acumulado hasta este paso de la Práctica 8.4 (Catálogo Pro con pnpm workspaces, Docker y GitHub Actions). Los comentarios del código explican cada concepto.
@@ -34,3 +36,5 @@ Según la guía: entre las etiquetas, `org.opencontainers.image.version:1.0.0`. 
 ![El build de 1.1.0 repite `COPY . .` e `install` (`#10 DONE 26.4s`) y solo reutiliza la imagen base y lo que va antes del `ENV`; el rollback arranca la 1.0.0 en segundos y `docker inspect` muestra `org.opencontainers.image.version:1.0.0`.](captura.png)
 
 *El build de 1.1.0 repite `COPY . .` e `install` (`#10 DONE 26.4s`) y solo reutiliza la imagen base y lo que va antes del `ENV`; el rollback arranca la 1.0.0 en segundos y `docker inspect` muestra `org.opencontainers.image.version:1.0.0`.*
+
+<!-- {% endraw %} -->
