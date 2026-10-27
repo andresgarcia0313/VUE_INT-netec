@@ -1,0 +1,14 @@
+{
+  "name": "@catalogo/ui",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": { ".": "./src/index.js" },
+  "scripts": { "test": "vitest run" },
+  "peerDependencies": { "vue": "^3.5.0" },
+  "devDependencies": {
+    "@catalogo/config": "workspace:*",
+    "vitest": "3.0.9",
+    "vue": "3.5.13"
+  }
+}

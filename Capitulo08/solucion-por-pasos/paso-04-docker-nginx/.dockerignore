@@ -1,0 +1,4 @@
+# Lo que NO se envía a docker build: se regenera dentro de la imagen y solo haría lento el envío
+**/node_modules
+**/dist
+.git

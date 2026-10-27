@@ -1,0 +1,21 @@
+# ci.yml: integración continua. En cada cambio a main (push o pull request) una máquina de GitHub
+# instala, prueba y compila; si algo falla, el cambio queda marcado en rojo antes de llegar a producción.
+name: CI
+on:
+  push:
+    branches: [main]                        # cada cambio que llega a main
+  pull_request:
+    branches: [main]                        # y cada propuesta de cambio
+jobs:
+  calidad:
+    runs-on: ubuntu-latest                  # máquina Linux de GitHub
+    steps:
+      - uses: actions/checkout@v4           # descarga el código
+      - uses: pnpm/action-setup@v4          # primero pnpm: lee la versión de packageManager
+      - uses: actions/setup-node@v4         # después Node.js
+        with:
+          node-version: 24.22.0
+          cache: pnpm                       # reutiliza descargas; necesita pnpm ya instalado
+      - run: pnpm install --frozen-lockfile # instala justo lo del bloqueo
+      - run: pnpm test                      # las pruebas del paso 1
+      - run: pnpm build                     # compila la SPA

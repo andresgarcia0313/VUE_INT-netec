@@ -1,0 +1,26 @@
+# release.yml: entrega continua. Al subir una etiqueta como v1.0.0 construye la imagen Docker
+# del paso 4 y la publica en ghcr.io con dos nombres: la versión (1.0.0) y el SHA del commit.
+name: Release
+on:
+  push:
+    tags: ['v*.*.*']                        # solo al subir una etiqueta como v1.0.0
+permissions:
+  contents: read
+  packages: write                           # sin esto, ghcr.io rechaza la publicación
+jobs:
+  imagen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/login-action@v3        # entra a ghcr.io con el token automático
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Construir y publicar con versión y SHA
+        run: |
+          IMAGEN=ghcr.io/${GITHUB_REPOSITORY,,}   # dueño/repositorio en minúsculas
+          VERSION=${GITHUB_REF_NAME#v}             # v1.0.0 pasa a 1.0.0
+          SHA=${GITHUB_SHA::12}                    # 12 caracteres del commit
+          docker build --build-arg APP_VERSION="$VERSION" -t "$IMAGEN:$VERSION" -t "$IMAGEN:$SHA" .
+          docker push --all-tags "$IMAGEN"

@@ -1,0 +1,6 @@
+# pnpm-workspace.yaml: convierte la carpeta en un monorepo (un repositorio con varios paquetes).
+# pnpm instala todos los paquetes juntos y enlaza entre sí los que se piden con workspace:*.
+# cada carpeta dentro de apps/ y packages/ es un paquete del monorepo
+packages:
+  - "apps/*"
+  - "packages/*"

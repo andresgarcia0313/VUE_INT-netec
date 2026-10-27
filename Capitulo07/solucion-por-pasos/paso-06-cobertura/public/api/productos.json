@@ -1,0 +1,7 @@
+[
+  { "id": 1, "nombre": "Mouse inalámbrico", "precio": 49900 },
+  { "id": 2, "nombre": "Teclado mecánico", "precio": 189900 },
+  { "id": 3, "nombre": "Monitor 4K", "precio": 1299000 },
+  { "id": 4, "nombre": "Cámara web", "precio": 159900 },
+  { "id": 5, "nombre": "Audífonos", "precio": 99900 }
+]

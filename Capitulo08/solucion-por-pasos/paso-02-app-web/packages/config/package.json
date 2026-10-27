@@ -1,0 +1,7 @@
+{
+  "name": "@catalogo/config",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": { "./vitest": "./vitest.config.js" }
+}
